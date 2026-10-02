@@ -1,0 +1,619 @@
+
+Diseño: 
+/* ========================================
+   🎬 ¿QUÉ VEMOS HOY? - ESTILOS GENERALES
+======================================== */
+
+/* VARIABLES DE COLORES */
+:root {
+    --fondo: #0f0b1a;
+    --fondo-secundario: #19132b;
+    --tarjeta: #211a36;
+    --violeta: #8b5cf6;
+    --violeta-claro: #a78bfa;
+    --rosa: #ec4899;
+    --blanco: #ffffff;
+    --texto: #e9e5f5;
+    --texto-secundario: #b8b0ce;
+    --borde: rgba(255, 255, 255, 0.1);
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   🔄 RESETEO GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ========================================
+   🎬 ENCABEZADO
+======================================== */
+
+header {
+    background: rgba(15, 11, 26, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borde);
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* TÍTULO PRINCIPAL */
+
+header h1 {
+    color: var(--blanco);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   🧭 MENÚ DE NAVEGACIÓN
+======================================== */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--violeta-claro);
+}
+
+/* LÍNEA DEBAJO DEL ENLACE */
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--rosa);
+    left: 0;
+    bottom: -6px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   🌙 BOTÓN MODO OSCURO
+======================================== */
+
+#modoOscuro {
+    background: transparent;
+    color: var(--blanco);
+    border: 1px solid var(--violeta);
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#modoOscuro:hover {
+    background: var(--violeta);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   📦 CONTENIDO PRINCIPAL
+======================================== */
+
+main {
+    width: 100%;
+    overflow: hidden;
+}
+
+section {
+    padding: 80px 6%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* TÍTULOS DE SECCIONES */
+
+section h2 {
+    font-size: 2.2rem;
+    color: var(--blanco);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+section > p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    text-align: center;
+    color: var(--texto-secundario);
+    font-size: 1.05rem;
+}
+
+/* ========================================
+   🏠 SECCIÓN INICIO
+======================================== */
+
+#inicio {
+    max-width: none;
+    min-height: 570px;
+    padding: 120px 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(139, 92, 246, 0.23),
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #171027 0%,
+            #0f0b1a 100%
+        );
+}
+
+/* DESTELLO DECORATIVO */
+
+#inicio::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(236, 72, 153, 0.08);
+    filter: blur(90px);
+    border-radius: 50%;
+    top: 0;
+    right: 10%;
+    z-index: -1;
+}
+
+/* TÍTULO DEL INICIO */
+
+#inicio h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    max-width: 850px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c4b5fd,
+        #f9a8d4
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* TEXTO DEL INICIO */
+
+#inicio p {
+    max-width: 600px;
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+}
+
+/* ========================================
+   🔘 BOTONES GENERALES
+======================================== */
+
+button {
+    font-family: inherit;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+/* BOTÓN PRINCIPAL */
+
+#inicio button,
+#formularioRecomendador button {
+    background: linear-gradient(
+        135deg,
+        var(--violeta),
+        var(--rosa)
+    );
+    color: var(--blanco);
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-size: 1rem;
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+}
+
+#inicio button:hover,
+#formularioRecomendador button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(236, 72, 153, 0.3);
+}
+
+/* QUITAR ESTILO DEL ENLACE DEL BOTÓN */
+
+#inicio a {
+    text-decoration: none;
+}
+
+/* ========================================
+   🎬 SECCIÓN PELÍCULAS Y SERIES
+======================================== */
+
+#peliculas,
+#series {
+    max-width: 1400px;
+}
+
+/* ORGANIZACIÓN DE LAS TARJETAS */
+
+#peliculas,
+#series {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+/* TÍTULOS Y DESCRIPCIONES OCUPAN TODO EL ANCHO */
+
+#peliculas h2,
+#peliculas > p,
+#series h2,
+#series > p {
+    grid-column: 1 / -1;
+}
+
+/* 
+
+========================================
+   🎞️ TARJETAS DE PELÍCULAS Y SERIES
+======================================== */
+
+article {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    padding-bottom: 22px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-8px);
+    border-color: rgba(167, 139, 250, 0.6);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(139, 92, 246, 0.08);
+}
+
+/* IMÁGENES DE LAS TARJETAS */
+
+article img {
+    width: 100%;
+    height: 320px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+article:hover img {
+    transform: scale(1.04);
+}
+
+/* CONTENIDO DE LAS TARJETAS */
+
+article h3 {
+    color: var(--blanco);
+    font-size: 1.35rem;
+    margin: 22px 22px 12px;
+    font-weight: 800;
+}
+
+article p {
+    color: var(--texto-secundario);
+    font-size: 0.92rem;
+    margin: 7px 22px;
+}
+
+/* ========================================
+   🍿 RECOMENDADOR
+======================================== */
+
+#recomendador {
+    max-width: none;
+    background:
+        linear-gradient(
+            180deg,
+            #0f0b1a 0%,
+            #171027 50%,
+            #0f0b1a 100%
+        );
+    padding: 90px 6%;
+}
+
+/* FORMULARIO */
+
+#formularioRecomendador {
+    max-width: 650px;
+    margin: 40px auto 30px;
+    padding: 35px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ETIQUETAS */
+
+#formularioRecomendador label {
+    color: var(--texto);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* CAMPOS DE TEXTO Y SELECT */
+
+#formularioRecomendador select,
+#formularioRecomendador input {
+    width: 100%;
+    background: #151025;
+    color: var(--blanco);
+    border: 1px solid #403458;
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* COLOR DE OPCIONES */
+
+#formularioRecomendador select option {
+    background: #151025;
+    color: var(--blanco);
+}
+
+/* PLACEHOLDER */
+
+#formularioRecomendador input::placeholder {
+    color: #9187aa;
+}
+
+/* EFECTO AL SELECCIONAR CAMPOS */
+
+#formularioRecomendador select:focus,
+#formularioRecomendador input:focus {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+/* BOTÓN DEL FORMULARIO */
+
+#formularioRecomendador button {
+    margin-top: 22px;
+    width: 100%;
+}
+
+/* ========================================
+   🔎 RESULTADO DE LA RECOMENDACIÓN
+======================================== */
+
+#resultado {
+    max-width: 650px;
+    margin: 25px auto 0;
+    padding: 25px;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px dashed rgba(167, 139, 250, 0.5);
+    border-radius: 15px;
+    text-align: center;
+}
+
+#resultado h3 {
+    color: var(--violeta-claro);
+    font-size: 1.1rem;
+}
+
+#resultado p {
+    color: var(--texto-secundario);
+}
+
+/* ========================================
+   🦶 PIE DE PÁGINA
+======================================== */
+
+footer {
+    background: #0a0712;
+    border-top: 1px solid var(--borde);
+    padding: 40px 6%;
+    text-align: center;
+}
+
+footer p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+footer p:first-child {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+/* ========================================
+   📱 DISEÑO RESPONSIVE - TABLETS
+======================================== */
+
+@media (max-width: 950px) {
+
+    header {
+        justify-content: center;
+    }
+
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #peliculas,
+    #series {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    article img {
+        height: 300px;
+    }
+}
+
+/* ========================================
+   📱 DISEÑO RESPONSIVE - CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px 5%;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 1.45rem;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    #modoOscuro {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    section {
+        padding: 55px 5%;
+    }
+
+    #inicio {
+        min-height: 500px;
+        padding: 80px 5%;
+    }
+
+    #inicio h2 {
+        font-size: 2.25rem;
+    }
+
+    #inicio p {
+        font-size: 0.98rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    #peliculas,
+    #series {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    article img {
+        height: 360px;
+    }
+
+    #formularioRecomendador {
+        padding: 25px 20px;
+    }
+
+    #recomendador {
+        padding: 60px 5%;
+    }
+
+    footer {
+        padding: 30px 5%;
+    }
+}
+
+/* ========================================
+   ♿ ACCESIBILIDAD
+======================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 3px;
+}
+
+/* REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
